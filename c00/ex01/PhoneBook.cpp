@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:01 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/10/14 17:22:06 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/10/15 17:03:02 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PhoneBook::PhoneBook(void){
 PhoneBook::~PhoneBook(void){
 }
 
-void PhoneBook::add_contact()
+void PhoneBook::add_contact(void)
 {
 	static int	contact_count = 0;
 
@@ -29,15 +29,24 @@ void PhoneBook::add_contact()
 	contact_count++;
 }
 
-void	PhoneBook::search_contact()
+void	PhoneBook::search_contact(void)
 {
 	int	index;
+	this->print_all();
 	std::cout << "Choose a contact between 1 and 8" << std::endl;
 	std::cin >> index;
 	if (index >= 1 && index <= 8)
-		contacts[index - 1].print(index);
+		contacts[index - 1].print();
 	else
 		std::cerr << "naughty boi! you're being sent back to the home menu!" << std::endl;
     std::cin.ignore(INT16_MAX, '\n');
 }
 
+void	PhoneBook::print_all(void)
+{
+	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	for (int i = 0; i < 8; i++)
+		contacts[i].print_ui(i + 1);
+}

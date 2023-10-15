@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:07 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/10/14 17:21:53 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:59:59 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class Contact {
 		Contact(void);
 		~Contact(void);
 		void	set_contact();
-		void	print(int index);
+		void	print();
+		void	print_ui(int index);
 };
 
 #endif

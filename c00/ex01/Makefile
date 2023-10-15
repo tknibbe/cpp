@@ -9,7 +9,7 @@ compile = c++ -Wall -Wextra -Werror #-std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(compile) $(OBJS) -fsanitize=address -o $(NAME) 
+	$(compile) $(OBJS) -o $(NAME) 
 
 clean:
 	rm -f $(OBJS)
