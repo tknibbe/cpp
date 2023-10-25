@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:01 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/10/15 17:03:02 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:39:53 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void PhoneBook::add_contact(void)
 void	PhoneBook::search_contact(void)
 {
 	int	index;
-	this->print_all();
+	print_all();
 	std::cout << "Choose a contact between 1 and 8" << std::endl;
 	std::cin >> index;
 	if (index >= 1 && index <= 8)
