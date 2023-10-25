@@ -5,9 +5,12 @@ SRC=	Account.cpp \
 
 OBJ= $(SRC:.cpp=.o)
 
-compile= c++ -Werror -Wall -Wextra
+compile= c++ -Werror -Wall -Wextra -std=c++98
 
 all: $(NAME)
+
+$(OBJ): $(SRC)
+	$(compile) -c $(SRC)
 
 $(NAME): $(OBJ)
 	$(compile) $(OBJ) -o $(NAME)

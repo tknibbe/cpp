@@ -8,6 +8,9 @@ compile = c++ -Wall -Wextra -Werror #-std=c++98
 
 all: $(NAME)
 
+$(OBJ): $(SRC)
+	$(compile) -c $(SRC)
+
 $(NAME): $(OBJS)
 	$(compile) $(OBJS) -o $(NAME)
 
