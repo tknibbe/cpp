@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = zombie00
 
 SRC =	main.cpp \
 		Zombie.cpp \
@@ -9,8 +9,8 @@ OBJ = $(SRC:.cpp=.o)
 
 COMPILE = c++ -Wall -Wextra -Werror #-std=c++98
 
-$(OBJ): $(SRC)
-	$(compile) -c $(SRC)
+%.o: %.cpp
+	$(COMPILE) -c $^
 
 $(NAME): $(OBJ)
 	$(COMPILE) $(OBJ) -o $(NAME)

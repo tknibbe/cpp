@@ -2,20 +2,20 @@ NAME=phonebook
 
 SRCS= main.cpp PhoneBook.cpp Contact.cpp
 
-OBJS= $(SRCS:.cpp=.o)
+OBJ= $(SRCS:.cpp=.o)
 
 compile = c++ -Wall -Wextra -Werror #-std=c++98
 
 all: $(NAME)
 
-$(OBJ): $(SRC)
-	$(compile) -c $(SRC)
+%.o: %.cpp
+	$(compile) -c $^
 
-$(NAME): $(OBJS)
-	$(compile) $(OBJS) -o $(NAME) 
+$(NAME): $(OBJ)
+	$(compile) $(OBJ) -o $(NAME) 
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
