@@ -1,5 +1,9 @@
 #include <string>
 
+
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
 class Zombie{
 public:
 
@@ -14,3 +18,5 @@ private:
 };
 
 Zombie *zombieHorde(int N, std::string name);
+
+#endif
