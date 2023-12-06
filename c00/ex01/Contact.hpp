@@ -6,14 +6,12 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:07 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/11/17 18:35:32 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:32:29 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-
-#include <iostream>
 
 class Contact {
 	private:

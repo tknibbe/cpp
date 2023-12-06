@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:03:56 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/11/17 18:37:06 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:31:31 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-	// int test;
+	
 	private:
 		Contact		contacts[8];
 	public:
