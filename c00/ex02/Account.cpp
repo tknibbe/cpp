@@ -45,11 +45,11 @@ int	Account::getNbWithdrawals( void ){
 
 void	Account::displayAccountsInfos( void ){
 	Account::_displayTimestamp();
-	std::cout << "accounts:" << getNbAccounts()
-		<< ";total:" << getTotalAmount()
-		<< ";deposits:" << getNbDeposits()
-		<< ";withdrawals:" << getNbWithdrawals()
-		<< std::endl;
+	std::cout	<< "accounts:" << getNbAccounts()
+				<< ";total:" << getTotalAmount()
+				<< ";deposits:" << getNbDeposits()
+				<< ";withdrawals:" << getNbWithdrawals()
+				<< std::endl;
 }
 
 
@@ -57,7 +57,7 @@ void	Account::displayAccountsInfos( void ){
 //accessing instance private data
 void	Account::makeDeposit( int deposit ){
 	Account::_displayTimestamp();
-	std::cout << "index:" << _accountIndex
+	std::cout	<< "index:" << _accountIndex
 				<< ";p_amount:" << _amount
 				<< ";deposit:" << deposit;
 
@@ -66,7 +66,7 @@ void	Account::makeDeposit( int deposit ){
 	Account::_totalAmount += deposit;
 	Account::_totalNbDeposits++;
 
-	std::cout << ";amount:" << _amount
+	std::cout	<< ";amount:" << _amount
 				<< ";nb_deposits:" << _nbDeposits
 				<< std::endl;
 }
@@ -87,10 +87,10 @@ bool	Account::makeWithdrawal( int withdrawal )
 	Account::_totalNbWithdrawals++;
 	Account::_totalAmount -= withdrawal;
 
-	std::cout << ";withdrawal:" << withdrawal
-			<< ";amount:" << _amount
-			<< ";nb_withdrawals:" << _nbWithdrawals
-			<< std::endl;
+	std::cout	<< ";withdrawal:" << withdrawal
+				<< ";amount:" << _amount
+				<< ";nb_withdrawals:" << _nbWithdrawals
+				<< std::endl;
 	return true;
 }
 
@@ -100,11 +100,11 @@ int		Account::checkAmount( void ) const{
 
 void	Account::displayStatus( void ) const{
 	Account::_displayTimestamp();
-	std::cout << "account:" << _accountIndex 
-		<< ";amount:" << _amount 
-		<< ";deposits:" << _nbDeposits 
-		<< ";withdrawals:" << _nbWithdrawals 
-		<< std::endl;
+	std::cout	<< "account:" << _accountIndex 
+				<< ";amount:" << _amount 
+				<< ";deposits:" << _nbDeposits 
+				<< ";withdrawals:" << _nbWithdrawals 
+				<< std::endl;
 }
 
 
