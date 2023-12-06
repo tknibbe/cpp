@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <string.h>
 
 int main (int argc, char **argv)
 {
@@ -9,12 +9,11 @@ int main (int argc, char **argv)
 		return (0);
 	}
 
-	std::string s;
 	for (int i = 1; i < argc; i++)
 	{
-		s = argv[i];
-		std::transform(s.begin(), s.end(), s.begin(), ::toupper);
-		std::cout << s;
+		for (size_t j = 0; j < strlen(argv[i]); j++)
+			argv[i][j] = toupper(argv[i][j]);
+		std::cout << argv[i];
 	}
 	std::cout << std::endl;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:07 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/10/15 16:59:59 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/11/17 18:35:32 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 class Contact {
 	private:
-	std::string	first_name;
-	std::string	last_name;
-	std::string nickname;
-	std::string	phone_number;
-	std::string	secret;
+		std::string	first_name;
+		std::string	last_name;
+		std::string nickname;
+		std::string	phone_number;
+		std::string	secret;
 	public:
 		Contact(void);
 		~Contact(void);

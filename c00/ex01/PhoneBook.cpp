@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:01 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/10/25 15:39:53 by tknibbe          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:24:19 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ void PhoneBook::add_contact(void)
 
 void	PhoneBook::search_contact(void)
 {
-	int	index;
+	char	index;
 	print_all();
 	std::cout << "Choose a contact between 1 and 8" << std::endl;
 	std::cin >> index;
-	if (index >= 1 && index <= 8)
+		
+	if (index >= '1' && index <= '8')
 		contacts[index - 1].print();
 	else
-		std::cerr << "naughty boi! you're being sent back to the home menu!" << std::endl;
+		std::cerr << "naughty naughty! you're being sent back to the home menu!" << std::endl;
     std::cin.ignore(INT16_MAX, '\n');
 }
 
