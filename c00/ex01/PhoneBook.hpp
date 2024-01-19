@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:03:56 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/12/06 15:31:31 by tknibbe          ###   ########.fr       */
+/*   Updated: 2024/01/19 16:03:37 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class PhoneBook {
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		void	add_contact(void);
-		void	search_contact(void);
-		void	print_all(void);
+		void	AddContact(void);
+		void	SearchContact(void);
+		void	PrintAll(void);
 };
 
 #endif

@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <iostream>
+
 
 int main()
 {
@@ -13,13 +15,14 @@ int main()
 		if (std::cin.eof())
 		{
 			std::cout << std::endl;
-			return (0);
+			return 1;
 		}
-		std::transform(input.begin(), input.end(), input.begin(), ::toupper);
+		for (int i=0; i < (int)input.length(); i++)
+			input[i] = std::toupper(input[i]);
 		if (input == "ADD")
-			PhoneBook.add_contact();
+			PhoneBook.AddContact();
 		else if (input == "SEARCH")
-			PhoneBook.search_contact();
+			PhoneBook.SearchContact();
 		else if (input == "EXIT")
 		{
 			std::cout << "Goodbye!" << std::endl;
@@ -28,6 +31,6 @@ int main()
 		else
 			std::cout << "Invalid command. Please try again." << std::endl;
 	}
-	return 0;
+	return 1;
 }
 

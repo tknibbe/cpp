@@ -4,7 +4,7 @@ SRCS= main.cpp PhoneBook.cpp Contact.cpp
 
 OBJ= $(SRCS:.cpp=.o)
 
-compile = c++ -Wall -Wextra -Werror #-std=c++98
+compile = c++ -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

@@ -6,12 +6,14 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:04:07 by tknibbe           #+#    #+#             */
-/*   Updated: 2023/12/06 15:32:29 by tknibbe          ###   ########.fr       */
+/*   Updated: 2024/01/19 16:01:43 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+# include <string>
 
 class Contact {
 	private:
@@ -23,9 +25,9 @@ class Contact {
 	public:
 		Contact(void);
 		~Contact(void);
-		void	set_contact();
-		void	print();
-		void	print_ui(int index);
+		void	SetContact();
+		void	Print();
+		void	PrintUi(int index);
 };
 
 #endif
