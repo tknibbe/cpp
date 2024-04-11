@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:21:25 by tknibbe           #+#    #+#             */
-/*   Updated: 2024/04/10 16:47:40 by tknibbe          ###   ########.fr       */
+/*   Updated: 2024/04/11 17:42:25 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ HumanB::HumanB(std::string name){
 	_Weapon = nullptr;
 }
 
-HumanB::~HumanB(){
+HumanB::~HumanB(void){
 
 };
 

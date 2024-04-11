@@ -21,6 +21,6 @@ class HumanA{
 		std::string	_Name;
 	public:
 		HumanA(std::string name, Weapon &weapon);
-		~HumanA();
+		~HumanA(void);
 		void	attack(void);
 };
