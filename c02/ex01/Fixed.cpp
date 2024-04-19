@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed(){
 	std::cout << "Default constructor called\n";
@@ -9,15 +10,13 @@ Fixed::Fixed(){
 //converts int to corresponding fixed point value
 Fixed::Fixed(const int num){
 	std::cout << "Int constructor called\n";
-	//code here
+	_Value = num * (1 << _Bits);
 }
 
 //converts float to fixed point value
 Fixed::Fixed(const float num){
 	std::cout << "Float constructor called\n";
-	//convert here
-	int	a = num * (1 << _Bits); //hopelijk is dit correct
-	// std::cout << "a = " << a << '\n';
+	_Value = roundf(num * (1 << _Bits));
 }
 
 Fixed::~Fixed(){
@@ -26,36 +25,35 @@ Fixed::~Fixed(){
 
 Fixed::Fixed(const Fixed& ref){
 	std::cout << "Copy construtor called\n";
-	//make it copy
+	_Value = ref._Value;
 }
 
 void	Fixed::setRawBits(int const raw){
 	std::cout << "setRawBits member function called\n";
-	this->_Value = raw;
+	_Value = raw;
 }
 
 int		Fixed::getRawBits() const {
 	std::cout << "getRawBits member function called\n";
-	return this->_Value;
+	return _Value;
 }
 
 float	Fixed::toFloat() const{
-	std::cout << "Tofloat member function called\n";
-	//code here
+	return static_cast<float>(_Value) / (1 << _Bits);
 }
 
 int	Fixed::toInt() const{
-	std::cout << "toInt member function called\n";
-	//code here
+	return _Value / (1 << _Bits);
 }
 
 Fixed&	Fixed::operator=(const Fixed& ref){
 	std::cout << "Copy assignment operator called\n";
 	if (this != &ref)
-		this->_Value = ref._Value;
+		_Value = ref._Value;
+	return *this;
 }
 
-void	Fixed::operator<<(const Fixed& ref){
-	std::cout << "insertion operator called\n";
-	//code here
+std::ostream&	operator<<(std::ostream& os, const Fixed& ref){
+	os << ref.toFloat();
+	return os;
 }

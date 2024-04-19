@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class	Fixed{
 
@@ -17,6 +18,6 @@ class	Fixed{
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
-	Fixed&	operator=(const Fixed& ref);
-	void	operator<<(const Fixed& ref);
+	Fixed&			operator=(const Fixed& ref);
 };
+std::ostream&	operator<<(std::ostream& os, const Fixed& ref);
