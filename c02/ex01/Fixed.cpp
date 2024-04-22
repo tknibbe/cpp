@@ -10,7 +10,7 @@ Fixed::Fixed(){
 //converts int to corresponding fixed point value
 Fixed::Fixed(const int num){
 	std::cout << "Int constructor called\n";
-	_Value = num * (1 << _Bits);
+	_Value = num << _Bits;
 }
 
 //converts float to fixed point value
@@ -43,7 +43,7 @@ float	Fixed::toFloat() const{
 }
 
 int	Fixed::toInt() const{
-	return _Value / (1 << _Bits);
+	return _Value >> _Bits;
 }
 
 Fixed&	Fixed::operator=(const Fixed& ref){
