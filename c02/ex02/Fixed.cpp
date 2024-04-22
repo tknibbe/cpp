@@ -9,8 +9,8 @@ Fixed::Fixed(){
 
 //converts int to corresponding fixed point value
 Fixed::Fixed(const int num){
+	// std::cout << "Int constructor called\n";
 	_Value = num << _Bits;
-	std::cout << "Int constructor called " << _Value << "\n";
 }
 
 //converts float to fixed point value
@@ -58,6 +58,60 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& ref){
 	return os;
 }
 
+bool	Fixed::operator>(const Fixed& ref){
+	return (this->_Value > ref._Value);
+}
+
+bool	Fixed::operator<(const Fixed& ref){
+	return (this->_Value < ref._Value);
+}
+
+bool	Fixed::operator<=(const Fixed& ref){
+	return (this->_Value <= ref._Value);
+}
+
+bool	Fixed::operator>=(const Fixed& ref){
+	return (this->_Value >= ref._Value);
+}
+
+bool	Fixed::operator==(const Fixed& ref){
+	return (this->_Value == ref._Value);
+}
+
+bool	Fixed::operator!=(const Fixed& ref){
+	return (this->_Value != ref._Value);
+}
+
+Fixed	Fixed::operator+(const	Fixed& ref){
+	Fixed	temp;
+
+	temp._Value = this->_Value + ref._Value;
+	return temp;
+}
+
+Fixed	Fixed::operator-(const	Fixed& ref){
+	Fixed	temp;
+
+	temp._Value = this->_Value - ref._Value;
+	return temp;
+}
+
+Fixed	Fixed::operator*(const	Fixed& ref){
+
+	Fixed	temp;
+	long int	value = this->_Value * ref._Value;
+	
+	temp._Value = value >> _Bits;
+	return temp;
+}
+
+// do i need to do the same thing here as *?
+Fixed	Fixed::operator/(const	Fixed& ref){
+	Fixed	temp(this->toFloat() / ref.toFloat());
+
+	return temp;
+}
+
 Fixed&	Fixed::operator++() {
 	_Value++;
 	return *this;
@@ -80,38 +134,4 @@ float	Fixed::operator--(int num) {
 	float	temp = this->toFloat();
 	_Value--;
 	return (temp);
-}
-
-Fixed	Fixed::operator+(const	Fixed& ref){
-	Fixed	temp;
-
-	temp._Value = this->_Value - ref._Value;
-	return temp;
-}
-
-Fixed	Fixed::operator-(const	Fixed& ref){
-	Fixed	temp;
-
-	temp._Value = this->_Value - ref._Value;
-	return temp;
-}
-
-Fixed	Fixed::operator*(const	Fixed& ref){
-	Fixed	temp(this->toFloat() * ref.toFloat());
-
-	// temp._Value = ;
-	// std::cout << "doei jan, " << temp << '\n';
-	// temp._Value = temp._Value >> _Bits;
-	std::cout << "this = " << *this << " ref = " << ref <<" val = " << temp << '\n';
-	return temp;
-}
-
-Fixed	Fixed::operator/(const	Fixed& ref){
-	Fixed	temp(this->toFloat() / ref.toFloat());
-
-	// temp._Value = ;
-	// std::cout << "doei jan, " << temp << '\n';
-	// temp._Value = temp._Value >> _Bits;
-	// std::cout << "this = " << /this << " ref = " << ref <<" val = " << temp << '\n';
-	return temp;
 }

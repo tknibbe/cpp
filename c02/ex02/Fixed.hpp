@@ -22,7 +22,12 @@ class	Fixed{
 
 
 	//comparison
-
+	bool	operator>(const Fixed& ref);
+	bool	operator<(const Fixed& ref);
+	bool	operator<=(const Fixed& ref);
+	bool	operator>=(const Fixed& ref);
+	bool	operator==(const Fixed& ref);
+	bool	operator!=(const Fixed& ref);
 
 	//arithmic
 	Fixed	operator+(const	Fixed& ref);
