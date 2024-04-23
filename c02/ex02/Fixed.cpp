@@ -7,13 +7,11 @@ Fixed::Fixed(){
 	_Value = 0;
 }
 
-//converts int to corresponding fixed point value
 Fixed::Fixed(const int num){
 	// std::cout << "Int constructor called\n";
 	_Value = num << _Bits;
 }
 
-//converts float to fixed point value
 Fixed::Fixed(const float num){
 	// std::cout << "Float constructor called\n";
 	_Value = roundf(num * (1 << _Bits));
@@ -58,27 +56,27 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& ref){
 	return os;
 }
 
-bool	Fixed::operator>(const Fixed& ref){
+bool	Fixed::operator>(const Fixed& ref) const {
 	return (this->_Value > ref._Value);
 }
 
-bool	Fixed::operator<(const Fixed& ref){
+bool	Fixed::operator<(const Fixed& ref) const {
 	return (this->_Value < ref._Value);
 }
 
-bool	Fixed::operator<=(const Fixed& ref){
+bool	Fixed::operator<=(const Fixed& ref) const {
 	return (this->_Value <= ref._Value);
 }
 
-bool	Fixed::operator>=(const Fixed& ref){
+bool	Fixed::operator>=(const Fixed& ref) const {
 	return (this->_Value >= ref._Value);
 }
 
-bool	Fixed::operator==(const Fixed& ref){
+bool	Fixed::operator==(const Fixed& ref) const {
 	return (this->_Value == ref._Value);
 }
 
-bool	Fixed::operator!=(const Fixed& ref){
+bool	Fixed::operator!=(const Fixed& ref) const {
 	return (this->_Value != ref._Value);
 }
 
@@ -105,9 +103,9 @@ Fixed	Fixed::operator*(const	Fixed& ref){
 	return temp;
 }
 
-// do i need to do the same thing here as *?
 Fixed	Fixed::operator/(const	Fixed& ref){
-	Fixed	temp(this->toFloat() / ref.toFloat());
+	float	num = static_cast<float> (this->_Value) / static_cast<float>(ref._Value);
+	Fixed	temp(num);
 
 	return temp;
 }
@@ -134,4 +132,20 @@ float	Fixed::operator--(int num) {
 	float	temp = this->toFloat();
 	_Value--;
 	return (temp);
+}
+
+Fixed&	Fixed::min(Fixed& left, Fixed& right){
+	return (left < right ? left : right);
+}
+
+const Fixed&	Fixed::min(const Fixed& left, const Fixed& right){
+	return (left < right ? left : right);
+}
+
+Fixed&	Fixed::max(Fixed& left, Fixed& right){
+	return (left > right ? left : right);
+}
+
+const Fixed&	Fixed::max(const Fixed& left, const Fixed& right){
+	return (left > right ? left : right);
 }

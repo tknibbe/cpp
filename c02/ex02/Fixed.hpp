@@ -18,16 +18,21 @@ class	Fixed{
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
+	static Fixed&		min(Fixed& left, Fixed& right);
+	static Fixed&		max(Fixed& left, Fixed& right);
+	static const Fixed&	min(const Fixed& left, const Fixed& right);
+	static const Fixed&	max(const Fixed& left, const Fixed& right);
+
+
 	Fixed&	operator=(const Fixed& ref);
 
-
 	//comparison
-	bool	operator>(const Fixed& ref);
-	bool	operator<(const Fixed& ref);
-	bool	operator<=(const Fixed& ref);
-	bool	operator>=(const Fixed& ref);
-	bool	operator==(const Fixed& ref);
-	bool	operator!=(const Fixed& ref);
+	bool	operator>(const Fixed& ref) const;
+	bool	operator<(const Fixed& ref) const;
+	bool	operator<=(const Fixed& ref) const;
+	bool	operator>=(const Fixed& ref) const;
+	bool	operator==(const Fixed& ref) const;
+	bool	operator!=(const Fixed& ref) const;
 
 	//arithmic
 	Fixed	operator+(const	Fixed& ref);
