@@ -42,8 +42,8 @@ class	Fixed{
 
 	//in-decrement
 	Fixed&	operator++();
-	float	operator++(int num);
+	Fixed	operator++(int num);
 	Fixed&	operator--();
-	float	operator--(int num);
+	Fixed	operator--(int num);
 };
 std::ostream&	operator<<(std::ostream& os, const Fixed& ref);

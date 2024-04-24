@@ -115,9 +115,9 @@ Fixed&	Fixed::operator++() {
 	return *this;
 }
 
-float	Fixed::operator++(int num) {
+Fixed	Fixed::operator++(int num) {
 	(void) num;
-	float	temp = this->toFloat();
+	Fixed	temp(*this);
 	_Value++;
 	return (temp);
 }
@@ -127,9 +127,9 @@ Fixed&	Fixed::operator--() {
 	return *this;
 }
 
-float	Fixed::operator--(int num) {
+Fixed	Fixed::operator--(int num) {
 	(void) num;
-	float	temp = this->toFloat();
+	Fixed	temp(*this);
 	_Value--;
 	return (temp);
 }
