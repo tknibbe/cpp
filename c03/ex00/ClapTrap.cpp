@@ -32,5 +32,17 @@ void	ClapTrap::attack(const std::string& target){
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	
+	if (_hitPoints <= 0)
+	{
+		std::cout << "Claptrap " << _name << " is already dead! leave him alone :(\n";
+		return ;
+	}
+	_hitPoints -= amount;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount){
+	if (_energyPoints == 0)
+		return;
+	std::cout << "ClapTrap " << _name << " is repairing. gaining " << amount << " of HP\n";
+	_energyPoints--;
 }
