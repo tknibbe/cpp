@@ -2,9 +2,15 @@
 
 int main(void)
 {
-	ClapTrap trappie("dana");
+	ClapTrap trappie("trappie");
+	ClapTrap clap("clappie");
 
-	trappie.attack("dana");
+	trappie.attack("enemy");
 	trappie.takeDamage(9);
+	trappie.takeDamage(9);
+	trappie.takeDamage(9);
+	trappie.attack("enemy");
 	trappie.beRepaired(10000);
+	clap.attack("anotherenemy");
+	clap.beRepaired(1);
 }
