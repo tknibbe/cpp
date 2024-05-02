@@ -3,9 +3,10 @@
 
 ClapTrap::ClapTrap(std::string name) : _name(name){
 	std::cout << "constructor called\n";
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
+	_hitPoints 		= 10;
+	_energyPoints	= 10;
+	_attackDamage	= 0;
+	_maxHP			= 10;
 }
 
 ClapTrap::~ClapTrap(){
@@ -28,7 +29,7 @@ ClapTrap&	ClapTrap::operator=(ClapTrap& ref){
 }
 
 void	ClapTrap::attack(const std::string& target){
-	if (_energyPoints == 0 || _hitPoints <= 0)
+	if (_energyPoints == 0 || _hitPoints == 0)
 	{
 		std::cout << "Claptrap " << _name << " is dead or has no energy left. he cannot attack " << target << "\n";
 		return ;
@@ -38,21 +39,27 @@ void	ClapTrap::attack(const std::string& target){
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	if (_hitPoints <= 0)
+	if (_hitPoints == 0)
 	{
 		std::cout << "Claptrap " << _name << " is already dead! leave him alone :(\n";
 		return ;
 	}
+	// set damage amount so HP cannot go below 0
+	amount = amount > _hitPoints ? _hitPoints : amount;
+
 	_hitPoints -= amount;
-	std::cout << "Claptrap " << _name << " takes " << amount << " of damage! what a blow! it now has " << _hitPoints << " HP left\n";
+	std::cout << "Claptrap " << _name << " takes " << amount << " damage! what a blow! it now has " << _hitPoints << " HP left\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount){
-	if (_energyPoints == 0 || _hitPoints <= 0)
+	if (_energyPoints == 0 || _hitPoints == 0)
 	{
 		std::cout << "Claptrap " << _name << " is dead or has no energy left. it cannot be repaired\n";
 		return;
 	}
+	//set repair amount so HP cannot go above _maxHP
+	amount = _hitPoints + amount > _maxHP ? _maxHP - _hitPoints : amount;
+
 	_hitPoints += amount;
 	std::cout << "ClapTrap " << _name << " is repairing. gaining " << amount << " of HP (now at " << _hitPoints << ")\n";
 	_energyPoints--;
