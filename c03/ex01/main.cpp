@@ -14,16 +14,16 @@ int main(void)
 	// clap.attack("anotherenemy");
 	// clap.beRepaired(1);
 
-	ClapTrap defo;
-	ScavTrap def;
+	// ClapTrap defo;
+	// ScavTrap def;
 
-	// ScavTrap scav("Scavie");
-	// scav.takeDamage(50);
-	// scav.beRepaired(999999);
-	// scav.attack("enemyguy");
-	// scav.guardGate();
-	// scav.takeDamage(9999);
-	// scav.guardGate();
-	// scav.attack("another enemy");
-	// scav.beRepaired(999999);
+	ScavTrap scav("Scavie");
+	scav.takeDamage(50);
+	scav.beRepaired(999999);
+	scav.attack("enemyguy");
+	scav.guardGate();
+	scav.takeDamage(9999);
+	scav.guardGate();
+	scav.attack("another enemy");
+	scav.beRepaired(999999);
 }

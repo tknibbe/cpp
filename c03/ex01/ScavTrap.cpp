@@ -13,6 +13,22 @@ ScavTrap::~ScavTrap(){
 	std::cout << "ScavTrap destructor called\n";
 }
 
+ScavTrap::ScavTrap(const ScavTrap& ref){
+	std::cout << "copy constructor called\n";
+	*this = ref;
+}
+
+ScavTrap&	ScavTrap::operator=(const ScavTrap& ref){
+	if (this != &ref)
+	{
+		this->_hitPoints	=	ref._hitPoints;
+		this->_energyPoints	=	ref._energyPoints;
+		this->_attackDamage	=	ref._attackDamage;
+		this->_maxHP		=	ref._maxHP;
+	}
+	return *this;
+}
+
 void	ScavTrap::attack(const std::string& target){
 	if (_energyPoints == 0 || _hitPoints <= 0)
 	{
