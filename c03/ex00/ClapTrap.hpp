@@ -12,6 +12,7 @@ class	ClapTrap{
 		unsigned int	_maxHP;
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap(ClapTrap& ref);

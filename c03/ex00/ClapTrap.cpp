@@ -9,6 +9,14 @@ ClapTrap::ClapTrap(std::string name) : _name(name){
 	_maxHP			= 10;
 }
 
+ClapTrap::ClapTrap(){
+	_name			= "DefaultName";
+	_hitPoints 		= 10;
+	_energyPoints	= 10;
+	_attackDamage	= 0;
+	_maxHP			= 10;
+}
+
 ClapTrap::~ClapTrap(){
 	std::cout << "destructor called\n";
 }
