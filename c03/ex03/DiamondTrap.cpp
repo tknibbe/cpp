@@ -1,22 +1,24 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
-DiamondTrap::DiamondTrap(void): FragTrap(), ScavTrap(){
+DiamondTrap::DiamondTrap(void) : 
+		ClapTrap("Default_name_clap_name",
+				FragTrap::_baseHP,
+				ScavTrap::_baseEP,
+				FragTrap::_baseATK,
+				FragTrap::_baseHP),
+		_name("Default_name") {
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
-	_name = "Default_name";
-	ClapTrap::_name	= "Default_name_clap_name";
-	_hitPoints		= FragTrap::_hitPoints;
-	_energyPoints	= ScavTrap::_energyPoints; // why does this still assign Frag ep?
-	_attackDamage	= FragTrap::_attackDamage;
-	std::cout	<<	"Diamondtrap stats:\nHP : " << _hitPoints
-				<<	" (should be 100)\nEP : " << _energyPoints
-				<<	" (should be 50)\nATK: " << _attackDamage << " (Should be 30)\n\n";
-	//how to make attack() choose the ScavTrap one?
 }
 
-DiamondTrap::DiamondTrap(std::string name): FragTrap(), ScavTrap(){
+DiamondTrap::DiamondTrap(std::string name) : 
+		ClapTrap(name + "_clap_name",
+				FragTrap::_baseHP,
+				ScavTrap::_baseEP,
+				FragTrap::_baseATK,
+				FragTrap::_baseHP),
+		_name(name) {
 	std::cout << "DiamondTrap constructor called" << std::endl;
-	_name = name;
 }
 
 DiamondTrap::~DiamondTrap(void){
@@ -40,7 +42,11 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& ref){
 	return *this;
 }
 
+void DiamondTrap::attack(const std::string& target){
+	ScavTrap::attack(target);
+}
+
 void	DiamondTrap::whoAmI(void){
-	std::cout << _name << " is my name!\n";
-	//display BOTH names (read pdf nerd)
+	std::cout << _name << " is my name! " << ClapTrap::_name << " is my claptrap name!\n";
+	//display BOTH names (read pdf you nerd)
 }

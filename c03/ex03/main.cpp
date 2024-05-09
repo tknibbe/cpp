@@ -43,14 +43,17 @@ int main(void)
 
 	// FragTrap();
 	// ScavTrap ();
-	DiamondTrap	diam;
+	{
+		// DiamondTrap	default_guy;
+	}
+	DiamondTrap	diam("sjors");
 
-	// diam.takeDamage(11);
-	// diam.beRepaired(999999);
-	// diam.attack("enemyguy");
-	// diam.whoAmI();
-	// diam.takeDamage(9999);
-	// diam.whoAmI();
-	// diam.attack("another enemy");
-	// diam.beRepaired(999999);
+// 	diam.takeDamage(11);
+// 	diam.beRepaired(999999);
+	diam.attack("enemyguy");
+// 	diam.whoAmI();
+// 	diam.takeDamage(9999);
+// 	diam.whoAmI();
+// 	diam.attack("another enemy");
+// 	diam.beRepaired(999999);
 }

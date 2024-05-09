@@ -3,6 +3,12 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap{
+	private:
+
+	protected:
+		static int	_baseHP;
+		static int	_baseEP;
+		static int	_baseATK;
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);

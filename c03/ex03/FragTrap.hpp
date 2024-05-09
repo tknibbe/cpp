@@ -5,6 +5,9 @@ class FragTrap : virtual public ClapTrap{
 	private:
 
 	protected:
+		static int	_baseHP;
+		static int	_baseEP;
+		static int	_baseATK;
 
 	public:
 		FragTrap();
