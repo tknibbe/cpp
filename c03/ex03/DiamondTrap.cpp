@@ -48,5 +48,4 @@ void DiamondTrap::attack(const std::string& target){
 
 void	DiamondTrap::whoAmI(void){
 	std::cout << _name << " is my name! " << ClapTrap::_name << " is my claptrap name!\n";
-	//display BOTH names (read pdf you nerd)
 }

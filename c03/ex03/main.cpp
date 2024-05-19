@@ -51,7 +51,7 @@ int main(void)
 // 	diam.takeDamage(11);
 // 	diam.beRepaired(999999);
 	diam.attack("enemyguy");
-// 	diam.whoAmI();
+	diam.whoAmI();
 // 	diam.takeDamage(9999);
 // 	diam.whoAmI();
 // 	diam.attack("another enemy");
