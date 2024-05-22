@@ -1,0 +1,15 @@
+--add brain * to dog and cat --
+
+--add new brain to constructors -- 
+
+--add delete brain to destructors
+
+make setters and getters for the brain and the dog and cat
+
+what are deep vs shallow copies?
+	make them deep copies :). havent done that for cat or dog
+! for now it goes wrong trying to make deep copies in Dog. fix pls
+
+start using valgrind instead of fsanitize
+
+loop in main
