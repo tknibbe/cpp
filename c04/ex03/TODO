@@ -1,0 +1,12 @@
+make character copies deep !replace copy of inventory to c-style array
+
+make the imateria functions
+
+dont understand "During copy, the Materias of a Character must be deleted before the new ones are added
+to their inventory." --figure out later
+
+take out std::arrays. replace c-style arrays in all exercises
+
+do nullptr checks
+
+take out instand add to floor on AMateria's. doesnt work with .learnMateria()
