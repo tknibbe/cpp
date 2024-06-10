@@ -13,7 +13,7 @@ int main()
 	
 	j->makeSound();
 	i->makeSound();
-	delete j;//should not create a leak
+	delete j; //should not create a leak
 	delete i;
 
 	Animal *arr[100];
@@ -41,7 +41,7 @@ int main()
 	test2.setIdea(0, "if test's idea doesnt change this is a deep copy\n");
 
 
-	std::cout << "test: " << test.getIdea(0) << std::endl;
+	std::cout << "\ntest: " << test.getIdea(0) << std::endl;
 	std::cout << "test2: " << test2.getIdea(0) << std::endl;
 	test.setIdea(0, "new text\n");
 	std::cout << "test: " << test.getIdea(0) << std::endl;
