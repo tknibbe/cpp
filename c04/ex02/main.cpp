@@ -22,6 +22,5 @@ int main()
 
 	delete i;
 	delete j;
-
 	return 0;
 }
