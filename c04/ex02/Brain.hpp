@@ -7,7 +7,7 @@
 
 class Brain {
 	private:
-		std::array<std::string, brainNumIdeas> _ideas;
+		std::string *_ideas[brainNumIdeas];
 	protected:
 
 	public:

@@ -18,7 +18,11 @@ Brain& Brain::operator=(const Brain& ref){
 	std::cout << "Brain copy assignment operator called" << std::endl;
 	if (this != &ref)
 	{
-		this->_ideas = ref._ideas;
+		for(int i = 0; i < brainNumIdeas; i++)
+		{
+			_ideas[i] = ref._ideas[i];
+			i++;
+		}
 	}
 	return *this;
 }
@@ -29,7 +33,7 @@ void	Brain::setIdea(int index, std::string idea){
 		std::cout << "dont mess around like that man\n";
 		exit(1);
 	}
-	_ideas[index] = idea;
+	_ideas[index] = &idea;
 }
 
 std::string	Brain::getIdea(int index){
@@ -38,5 +42,5 @@ std::string	Brain::getIdea(int index){
 		std::cout << "dont mess around like that man\n";
 		exit(1);
 	}
-	return _ideas[index];
+	return *_ideas[index];
 }

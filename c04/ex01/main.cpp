@@ -16,7 +16,7 @@ int main()
 	delete j;//should not create a leak
 	delete i;
 
-	std::array<Animal *, 100> arr;
+	Animal *arr[100];
 
 	for(int i=0;i<100;i++)
 	{
