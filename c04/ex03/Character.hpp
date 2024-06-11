@@ -10,6 +10,7 @@ class Character : public ICharacter{
 	protected:
 
 	public:
+		Character();
 		Character(std::string name);
 		virtual ~Character();
 		Character(const Character& other);

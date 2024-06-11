@@ -17,5 +17,4 @@ class Floor {
 		void	deleteNode(const AMateria* m); //gotta be made
 		void	addNode(const AMateria* m);
 		void	deleteWholeList(void);
-		void	print(void);
 };

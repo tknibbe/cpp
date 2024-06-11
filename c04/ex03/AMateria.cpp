@@ -2,21 +2,21 @@
 #include <iostream>
 
 AMateria::AMateria(std::string const &type) : _type(type){
-	std::cout << "AMateria default constructor called" << std::endl;
-	globalFloor->addNode(this);
+	// std::cout << "AMateria default constructor called" << std::endl;
+	// globalFloor->addNode(this);
 }
 
 AMateria::~AMateria(void){
-	std::cout << "AMateria destructor called" << std::endl;
+	// std::cout << "AMateria destructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria& ref){
-	std::cout << "AMateria copy constructor called" << std::endl;
+	// std::cout << "AMateria copy constructor called" << std::endl;
 	*this = ref;
 }
 
 AMateria& AMateria::operator=(const AMateria& ref){
-	std::cout << "AMateria copy assignment operator called" << std::endl;
+	// std::cout << "AMateria copy assignment operator called" << std::endl;
 	if (this != &ref)
 	{
 		this->_type = ref._type;

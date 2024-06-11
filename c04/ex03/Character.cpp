@@ -4,6 +4,12 @@
 Character::Character(std::string name) : _name(name){
 	for (int i=0;i<4;i++)
 		_inventory[i] = nullptr;
+	std::cout << "Character constructor called" << std::endl;
+}
+
+Character::Character() : _name("DefaultName"){
+	for (int i=0;i<4;i++)
+		_inventory[i] = nullptr;
 	std::cout << "Character default constructor called" << std::endl;
 }
 
@@ -13,17 +19,31 @@ Character::~Character(void){
 	std::cout << "Character destructor called" << std::endl;
 }
 
-Character::Character(const Character& ref){
+Character::Character(const Character& ref) : _name(ref._name) {
 	std::cout << "Character copy constructor called" << std::endl;
-	*this = ref;
+	for (int i=0;i<4;i++)
+	{
+		if (ref._inventory[i] != nullptr)
+			this->_inventory[i] = ref._inventory[i]->clone();
+		else
+			this->_inventory[i] = nullptr;
+	}
 }
-//TODO : make deep copy
+
 Character& Character::operator=(const Character& ref){
-	std::cout << "Character copy assignment operator called" << std::endl;
+	// std::cout << "Character copy assignment operator called" << std::endl;
 	if (this != &ref)
 	{
 		this->_name = ref._name;
-		// this->_inventory = ref._inventory;  TODO
+
+		for (int i=0;i<4 && this->_inventory[i] != nullptr;i++) // delete materia "this" has any
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = nullptr;
+		}
+
+		for (int i=0;i<4 && ref._inventory[i] != nullptr;i++) // copy new instances of materia into "this"
+			this->_inventory[i] = ref._inventory[i]->clone();
 	}
 	return *this;
 }
@@ -33,24 +53,29 @@ std::string const &	Character::getName(void) const {
 }
 
 void	Character::equip(AMateria *m){
-	int idx = 0;
-	while (idx < 4) //find first empty slot
+	if (m == nullptr)
 	{
+		std::cout << "no materia given to equip\n";
+		return ;
+	}
+
+	int idx;
+	for (idx = 0;idx < 4;idx++) //find first empty slot
 		if (_inventory[idx] == nullptr)
 			break;
-		idx++;
-	}
 
 	if (idx == 4)	//if inventory is full
 	{
 		std::cout << "inventory is full. dropping materia on the floor\n";
+		globalFloor->addNode(m->clone());
 		return;
 	}
 
 	globalFloor->deleteNode(m);
 	std::cout << "equipping " << m->getType() << " into slot " << idx << "\n";
-	_inventory[idx] = m;
+	_inventory[idx] = m->clone();
 }
+
 void	Character::unequip(int idx){
 	if (idx < 0 || idx > 3)
 	{
@@ -65,6 +90,13 @@ void	Character::unequip(int idx){
 
 	std::cout << "unequipping " << _inventory[idx]->getType() << " from slot " << idx << "\n";
 	globalFloor->addNode(_inventory[idx]);
+	while (idx < 3)
+	{
+		if (_inventory[idx] == nullptr)
+			break;
+		_inventory[idx] = _inventory[idx + 1];
+		idx++;
+	}
 	_inventory[idx] = nullptr;
 }
 

@@ -11,7 +11,7 @@ SRC=	main.cpp \
 
 OBJ= ${SRC:.cpp=.o}
 
-compile= c++ -Wextra -Wall -Werror -std=c++11 -fsanitize=address
+compile= c++ -Wextra -Wall -Werror -std=c++11 #-fsanitize=address
 
 all: $(NAME)
 
