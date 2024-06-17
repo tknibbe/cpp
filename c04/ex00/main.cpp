@@ -8,6 +8,7 @@
 
 int main()
 {
+	//--------- pdf main
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -20,6 +21,9 @@ int main()
 	delete meta;
 	delete i;
 	delete j;
+
+
+	//-------------------------
 	std::cout << "\n---------------\n\n";
 
 	{
@@ -31,12 +35,18 @@ int main()
 		test3.makeSound();
 	}
 
+	//--------- pdf wrong main
 	std::cout << "\n---------------\n\n";
-	wrongAnimal wtest;
-	wrongCat	wtest2;
 
-	wtest.makeSound();
-	wtest2.makeSound();
+	const wrongAnimal* wrongmeta = new wrongAnimal();
+	const wrongAnimal* wrongi = new wrongCat();
+	std::cout << wrongi->getType() << " " << std::endl;
+	wrongi->makeSound(); //will output the wronganimal sound!
+	wrongmeta->makeSound();
+
+	delete wrongmeta;
+	delete wrongi;
+
 
 	return 0;
 }

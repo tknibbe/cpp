@@ -3,11 +3,11 @@
 #include <iostream>
 
 wrongCat::wrongCat(void) : wrongAnimal("wrongCat"){
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default wrongCat constructor called" << std::endl;
 }
 
 wrongCat::~wrongCat(void){
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "wrongCat destructor called" << std::endl;
 }
 
 wrongCat::wrongCat(const wrongCat& ref){
@@ -24,6 +24,6 @@ wrongCat& wrongCat::operator=(const wrongCat& ref){
 	return *this;
 }
 
-void	wrongCat::makeSound(){
-	std::cout << "* WRONG CAT SOUND\n"; //this will not be shown
+void	wrongCat::makeSound() const{
+	std::cout << "* WRONG CAT SOUND\n";
 }

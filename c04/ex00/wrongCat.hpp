@@ -11,5 +11,5 @@ class wrongCat : public wrongAnimal {
 		~wrongCat();
 		wrongCat(const wrongCat& other);
 		wrongCat&	operator=(const wrongCat& other);
-		void	makeSound();
+		void	makeSound() const;
 };

@@ -16,6 +16,7 @@ int main()
 	delete j; //should not create a leak
 	delete i;
 
+	// making and deleting array of animals
 	Animal *arr[100];
 
 	for(int i=0;i<100;i++)
@@ -31,6 +32,7 @@ int main()
 	for(int i=0;i<100;i++){
 		delete arr[i];
 	}
+	std::cout << "\n\n-------FINISHED DELETION-----------\n\n\n";
 
 
 	//-- deep copy examples
@@ -43,8 +45,19 @@ int main()
 
 	std::cout << "\ntest: " << test.getIdea(0) << std::endl;
 	std::cout << "test2: " << test2.getIdea(0) << std::endl;
+	std::cout << "test: " << test.getIdea(0) << std::endl;
+
 	test.setIdea(0, "new text\n");
+	std::cout << "changed test's idea to 'new text'. test2's idea should remain unchanged\n\n";
 	std::cout << "test: " << test.getIdea(0) << std::endl;
 	std::cout << "test2: " << test2.getIdea(0) << std::endl;
+
+	//----- reassigned leak test
+	Dog	leak;	//allocates new brain on the heap
+	leak.setIdea(0, "leaks?");
+	Dog newguy;
+	leak = newguy;	//could overwrite the "leak" class and forget the allocated brain
+
+
 	return 0;
 }

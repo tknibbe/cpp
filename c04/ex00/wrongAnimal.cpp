@@ -2,16 +2,16 @@
 #include <iostream>
 
 wrongAnimal::wrongAnimal(void){
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default wrongAnimal constructor called" << std::endl;
 	_type = "Some wrong Animal";
 }
 
 wrongAnimal::wrongAnimal(std::string type) : _type(type){
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "wrongAnimal constructor called" << std::endl;
 }
 
 wrongAnimal::~wrongAnimal(void){
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "wrongAnimal destructor called" << std::endl;
 }
 
 wrongAnimal::wrongAnimal(const wrongAnimal& ref){
@@ -28,6 +28,10 @@ wrongAnimal& wrongAnimal::operator=(const wrongAnimal& ref){
 	return *this;
 }
 
-void	wrongAnimal::makeSound(){
+void	wrongAnimal::makeSound() const{
 	std::cout << "* WRONG ANIMAL SOUND *\n";
+}
+
+std::string wrongAnimal::getType() const {
+	return _type;
 }

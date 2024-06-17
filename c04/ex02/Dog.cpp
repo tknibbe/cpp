@@ -13,11 +13,13 @@ Dog::~Dog(void){
 
 Dog::Dog(const Dog& ref){
 	std::cout << "Dog Copy constructor called" << std::endl;
-	*this = ref;
+	this->_type = ref._type;
+	this->_brain = new Brain(*ref._brain);
 }
 
 Dog& Dog::operator=(const Dog& ref){
 	std::cout << "Dog Copy assignment operator called" << std::endl;
+	delete this->_brain;
 	if (this != &ref)
 	{
 		this->_type = ref._type;
