@@ -16,7 +16,7 @@ class AForm {
 	public:
 		AForm();
 		AForm(std::string name, int signGrade, int execGrade);
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm& other);
 		AForm&	operator=(const AForm& other);
 		void	checkGrades();
