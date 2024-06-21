@@ -27,7 +27,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 	return *this;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor){
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 	if (this->getSignedStatus() == false)
 		throw AForm::FormUnsigned();
 	if (executor.getGrade() > this->getGradeToExec())

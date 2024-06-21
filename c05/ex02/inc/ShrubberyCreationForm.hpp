@@ -12,5 +12,5 @@ class ShrubberyCreationForm : public AForm{
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& other);
-		virtual void	execute(Bureaucrat const &executor) override;
+		virtual void	execute(Bureaucrat const &executor) const override;
 };

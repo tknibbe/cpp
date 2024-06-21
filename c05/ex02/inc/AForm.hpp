@@ -21,14 +21,14 @@ class AForm {
 		AForm&	operator=(const AForm& other);
 		void	checkGrades();
 		void	beSigned(Bureaucrat &b);
-		virtual void	execute(Bureaucrat const &executor) = 0;
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 
 
 	//getters
-		const std::string	&getName();
-		bool				getSignedStatus();
-		int					getGradeToSign();
-		int					getGradeToExec();
+		const std::string	&getName() const;
+		bool				getSignedStatus() const;
+		int					getGradeToSign() const;
+		int					getGradeToExec() const;
 
 	//exceptions
 		class	GradeTooHighException : public std::exception{

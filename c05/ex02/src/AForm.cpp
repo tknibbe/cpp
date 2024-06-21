@@ -37,19 +37,19 @@ AForm& AForm::operator=(const AForm& ref){
 	return *this;
 }
 
-const std::string &AForm::getName(void){
+const std::string &AForm::getName(void) const{
 	return (_name);
 }
 
-bool	AForm::getSignedStatus(void){
+bool	AForm::getSignedStatus(void) const{
 	return (_signed);
 }
 
-int AForm::getGradeToSign(void){
+int AForm::getGradeToSign(void) const{
 	return (_gradeToSign);
 }
 
-int AForm::getGradeToExec(void){
+int AForm::getGradeToExec(void) const{
 	return (_gradeToExec);
 }
 

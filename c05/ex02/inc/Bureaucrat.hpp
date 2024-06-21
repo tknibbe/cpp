@@ -18,6 +18,7 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat&	operator=(const Bureaucrat& other);
 		void	signForm(AForm &f);
+		void	executeForm(AForm const & form);
 
 		//setters
 		void	setGrade(int grade);

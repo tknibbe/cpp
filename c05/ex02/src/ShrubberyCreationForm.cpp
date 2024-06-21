@@ -32,7 +32,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor){
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
 	if (this->getSignedStatus() == false)
 		throw AForm::FormUnsigned();
 	if (executor.getGrade() > this->getGradeToExec())
