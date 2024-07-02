@@ -1,12 +1,21 @@
 #include "../inc/scalarConverter.hpp"
 #include <iostream>
 #include <string>
-int main(void){
-	std::string	charl = "P";
-	std::string	intl = "42";
-	std::string	floatl = "-4.2f";
-	std::string	doublel = "+innf";
+
+int main(int argc, char **argv){
+
+	//try to instansiate class
+	// scalarConverter	scalar; //can't because constructor is private
+	if (argc != 2)
+	{
+		std::cout << "Please supply one (1) argument\n";
+		return (EXIT_FAILURE);
+	}
 
 
 	//test scalarConverter here
+	std::string input(argv[1]);
+	scalarConverter::convert(input);
+
+
 }
