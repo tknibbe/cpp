@@ -6,7 +6,7 @@
 /*   By: tknibbe <tknibbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 20:29:19 by tknibbe           #+#    #+#             */
-/*   Updated: 2024/04/11 11:58:23 by tknibbe          ###   ########.fr       */
+/*   Updated: 2024/07/01 15:55:05 by tknibbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string>
 #include <iostream>
 
-typedef void (Harl::*func)(void);
+// typedef void (Harl::*func)(void);
 
 void	Harl::complain(std::string level)
 {

@@ -12,6 +12,7 @@ int main(int argc, char **argv){
 		return (EXIT_FAILURE);
 	}
 
+	std::cout << "\nInput: " << argv[1] << "\n\n";
 
 	//test scalarConverter here
 	std::string input(argv[1]);

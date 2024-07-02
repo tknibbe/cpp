@@ -59,7 +59,7 @@ bool isValidDouble(const std::string& str) {
 	} catch (std::invalid_argument& e) {
 		return false; // Not a valid double
 	} catch (std::out_of_range& e) {
-		std::cout << "out of range for a double\n";
+		std::cout << "out of range for a double! ";
 		return false; // Out of double range
 	}
 }
