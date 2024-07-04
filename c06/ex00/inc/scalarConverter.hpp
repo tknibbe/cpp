@@ -3,10 +3,10 @@
 
 class scalarConverter {
 	private:
-		scalarConverter();
-		~scalarConverter();
-		scalarConverter(const scalarConverter& other);
-		scalarConverter&	operator=(const scalarConverter& other);
+		scalarConverter() = delete;
+		~scalarConverter() = delete;
+		scalarConverter(const scalarConverter& other) = delete;
+		scalarConverter&	operator=(const scalarConverter& other) = delete;
 
 	protected:
 
