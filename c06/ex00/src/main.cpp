@@ -4,8 +4,8 @@
 
 int main(int argc, char **argv){
 
-	//try to instansiate class
-	// scalarConverter	scalar; //can't because constructor is private
+	//try to instantiate class
+	// scalarConverter	scalar; //can't because constructor is deleted
 	if (argc != 2)
 	{
 		std::cout << "Please supply one (1) argument\n";
