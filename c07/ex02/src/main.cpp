@@ -1,11 +1,14 @@
 #include <iostream>
 #include "../inc/Array.hpp"
 
+#define BLUE "\033[0;34m"
+#define WHITE "\033[0;37m"
+
 int main( void ) {
 
 	{
 		Array<double>	test;
-		std::cout << "illegal instructions on empty array:\n\n";
+		std::cout << BLUE << "illegal instructions on empty array:\n\n" << WHITE;
 		try {
 			std::cout << test[0];
 		}
@@ -21,7 +24,7 @@ int main( void ) {
 	}
 
 
-	std::cout << "\n\nillegal instructons on initialized array:\n";
+	std::cout << BLUE << "\n\nillegal instructons on initialized array:\n" << WHITE;
 	{
 		Array<int>	array(10);
 		for(int i=0; i<10; i++){
@@ -42,7 +45,7 @@ int main( void ) {
 	}
 
 
-	std::cout << "\n\ninstructons on uninitialized array:\n";
+	std::cout << BLUE << "\n\ninstructons on uninitialized array:\n" << WHITE;
 	{
 		Array<int>	array(10);
 		try {
@@ -54,7 +57,7 @@ int main( void ) {
 	}
 
 	{
-		std::cout << "\n\ninstructons on initialized array:\n";
+		std::cout << BLUE << "\n\ninstructons on initialized array:\n" << WHITE;
 		Array<int>	array(10);
 		for(int i=0; i<10; i++){
 			array[i] = i * 5;
@@ -62,7 +65,7 @@ int main( void ) {
 		std::cout << "array:\n" << array << "\n";
 	}
 	{
-	std::cout << "\n\ninstructons on string array:\n";
+	std::cout << BLUE << "\n\ninstructons on string array:\n" << WHITE;
 		Array<std::string>	str(5);
 		std::string			text("test");
 
@@ -77,7 +80,7 @@ int main( void ) {
 		std::cout << "initialized:\n" << str << "\n";
 	}
 
-	std::cout << "\nreassigning array to test leaks:\n";
+	std::cout << BLUE << "\nreassigning array to test leaks:\n" << WHITE;
 	{
 		Array<int> int1(5);
 		Array<int> int2(2);
@@ -91,21 +94,22 @@ int main( void ) {
 	}
 
 	Array<std::string> str1(5);
-	std::cout << "\nreassigning array to test leaks:\n";
+	std::cout << BLUE << "\nreassigning array to test leaks:\n" << WHITE;
 	{
 		Array<std::string> str2(2);
 		std::string			text("test");
 
-		str2[0] = "{placeholder text here}";
+		str2[0] = "New string!";
+		str2[1] = "another new string!";
 		for (int i=0; i<5;i++)
 		{
 			str1[i] = text + std::to_string(i); 
 		}
 		
-		std::cout << "str1 mid-way = " << str1 << "\n";
+		std::cout << "\nstr1 before reassigning =\n" << str1 << "\n";
 		str1 = str2;
 	}
 	//str2 will be destructed here so if the value is in str1 it sure is a deep copy
-	std::cout << "str1 final = " << str1 << "\n\n";
+	std::cout << "\nstr1 after reassigning =\n" << str1 << "\n\n";
 	return 0;
 }

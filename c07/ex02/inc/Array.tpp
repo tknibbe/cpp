@@ -5,30 +5,30 @@
 
 template <typename T>
 Array<T>::Array(void) : _array(new T[0]()), _size(0){
-	std::cout << "Array default constructor called" << std::endl;
+	// std::cout << "Array default constructor called" << std::endl;
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) :_array(new T[n]()), _size(n){
-	std::cout << "Array constructor called" << std::endl;
+	// std::cout << "Array constructor called" << std::endl;
 }
 
 template <typename T>
 Array<T>::~Array(void){
-	std::cout << "Array destructor called" << std::endl;
+	// std::cout << "Array destructor called" << std::endl;
 	delete [] _array;
 }
 
 template <typename T>
 Array<T>::Array(const Array& ref) : _array(new T(ref._size)), _size(ref._size){
-	std::cout << "Array copy constructor called" << std::endl;
+	// std::cout << "Array copy constructor called" << std::endl;
 	for (unsigned int i=0; i < _size; i++)
 		_array[i] = ref._array[i];
 }
 
 template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& ref){
-	std::cout << "Array copy assignment operator called" << std::endl;
+	// std::cout << "Array copy assignment operator called" << std::endl;
 	if (this != &ref)
 	{
 		delete [] _array;

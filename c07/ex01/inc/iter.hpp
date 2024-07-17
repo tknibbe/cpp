@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
 
+#define BLUE "\033[0;34m"
+#define WHITE "\033[0;37m"
+
+
 template <typename T>
 using func = void (*) (T&);
 
@@ -24,9 +28,9 @@ void	plusOne(T item){
 template <typename T>
 void	printTestForMain(T* arr, int len){
 
-	std::cout << "before:\n";
+	std::cout << BLUE << "before:\n" << WHITE;
 	::iter(arr, len, ::print);
 	::iter(arr, len, ::plusOne);
-	std::cout << "\nafter adding one:\n";
+	std::cout << BLUE << "\nafter adding one:\n" << WHITE;
 	::iter(arr, len, ::print);
 }

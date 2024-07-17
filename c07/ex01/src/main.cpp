@@ -16,13 +16,13 @@ int main( void ) {
 	std::cout << "\n\n---Double arrar---\n";
 	::printTestForMain(testDouble, 10);
 
-	char testChar[5] = {'a', 'b', 'Z', ' ', '~'};
+	char testChar[5] = {'a', 'b', 'C', 'Z', '~'};
 	std::cout << "\n\n---Char arrar---\n";
 	::printTestForMain(testChar, 5);
 	std::cout << "\n";
 
 
 	//no nulltesting available for iter() since it doesnt compile
-	//trying to compare nullptr_t against a T* or function ptr
+	//when trying to compare nullptr_t against a T* or function ptr
 	return 0;
 }
