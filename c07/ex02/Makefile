@@ -9,7 +9,7 @@ OBJ_FILES = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 DEP_FILES = $(OBJ_FILES:.o=.d)
 
 CXX = c++ -std=c++11
-CXXFLAGS = -Wall -Wextra -Werror -MMD -MP
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -fsanitize=address
 
 all: $(NAME)
 

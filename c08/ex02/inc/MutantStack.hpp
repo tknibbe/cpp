@@ -20,16 +20,16 @@ class MutantStack : public std::stack<T, Container> {
 
 
 
-	iterator				begin() {return (this->c.begin());}
-	iterator				end() {return (this->c.end());}
+	iterator				begin()		{return (this->c.begin());}
+	iterator				end()		{return (this->c.end());}
 
-	const_iterator			cbegin() {return (this->c.cbegin());}
-	const_iterator			cend() {return (this->c.cend());}
+	const_iterator			cbegin()	{return (this->c.cbegin());}
+	const_iterator			cend()		{return (this->c.cend());}
 
-	reverse_iterator		rbegin() {return (this->c.rbegin());}
-	reverse_iterator		rend() {return (this->c.rend());}
+	reverse_iterator		rbegin()	{return (this->c.rbegin());}
+	reverse_iterator		rend()		{return (this->c.rend());}
 
-	const_reverse_iterator	crbegin() {return (this->c.crbegin());}
-	const_reverse_iterator	crend() {return (this->c.crend());}
+	const_reverse_iterator	crbegin()	{return (this->c.crbegin());}
+	const_reverse_iterator	crend()		{return (this->c.crend());}
 
 };

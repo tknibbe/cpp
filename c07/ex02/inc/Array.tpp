@@ -20,10 +20,12 @@ Array<T>::~Array(void){
 }
 
 template <typename T>
-Array<T>::Array(const Array& ref) : _array(new T(ref._size)), _size(ref._size){
+Array<T>::Array(const Array& ref) : _array(new T[ref._size]()), _size(ref._size){
 	// std::cout << "Array copy constructor called" << std::endl;
 	for (unsigned int i=0; i < _size; i++)
+	{
 		_array[i] = ref._array[i];
+	}
 }
 
 template <typename T>
