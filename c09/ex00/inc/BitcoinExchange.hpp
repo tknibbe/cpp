@@ -7,7 +7,7 @@
 
 class BitcoinExchange {
 	private:
-		std::unordered_map<std::string, float>	_map;
+		std::map<std::string, float>	_map;
 		void	getData();
 
 	protected:

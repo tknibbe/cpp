@@ -3,7 +3,6 @@
 
 BitcoinExchange::BitcoinExchange(void){
 	getData();
-	std::cout << "Succesfully loaded in data\n";
 }
 
 BitcoinExchange::~BitcoinExchange(void){
@@ -80,7 +79,7 @@ int	BitcoinExchange::validateDate(std::string date)
 	//let strptime validate the date 
 	if (!strptime(date.c_str(), "%Y-%m-%d", &time))
 	{
-		std::cerr << "Wrong date format: " << date << "\n";
+		std::cerr << "Date incorrect: " << date << "\n";
 		return (1);
 	}
 	return (0);
@@ -88,7 +87,6 @@ int	BitcoinExchange::validateDate(std::string date)
 
 void	BitcoinExchange::getUserInput(std::string fileName)
 {
-	std::cout << fileName << "\n";
 
 	std::fstream file;
 
@@ -138,7 +136,7 @@ void	BitcoinExchange::getUserInput(std::string fileName)
 			amountFloat = std::stof(amount);
 			if (amountFloat < 0 || amountFloat > 1000)
 			{
-				std::cerr << "Error: too large a number\n";
+				std::cerr << "Error: Number not in range 0-1000\n";
 				continue;
 			}
 		}
@@ -154,5 +152,19 @@ void	BitcoinExchange::getUserInput(std::string fileName)
 
 void BitcoinExchange::printResults(std::string date, float amount)
 {
-	std::cout << date << " => " << amount << " = " << _map[date] * amount << "\n";
+
+	auto	key = _map.find(date);
+	if (key == _map.end())
+	{
+		key = _map.lower_bound(date);
+		if (key == _map.begin())
+		{
+			std::cerr << "Date too early! Database only goes back to : " << _map.begin()->first << "\n";
+			return ;
+		}
+		key--;
+		std::cerr << "Date not found. taking price of closest previous date.: " << date << " becomes : " << key->first << "\n";
+	}
+	
+	std::cout << key->first << " => " << amount << " = " << key->second * amount << "\n";
 }
