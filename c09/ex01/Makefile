@@ -1,9 +1,10 @@
-NAME = executable
+NAME = RPN
 
 SRC_DIR = src
 OBJ_DIR = obj
 
 SRC_FILES = main.cpp \
+			RPN.cpp
 
 OBJ_FILES = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 DEP_FILES = $(OBJ_FILES:.o=.d)
