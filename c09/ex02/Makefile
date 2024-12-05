@@ -1,4 +1,4 @@
-NAME = executable
+NAME = PmergeMe
 
 SRC_DIR = src
 OBJ_DIR = obj
