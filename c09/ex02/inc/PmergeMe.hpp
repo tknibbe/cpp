@@ -4,6 +4,8 @@
 #include <list>
 #include <iostream>
 
+extern int	g_comparison_count;
+
 template <typename Container = std::vector<int> >
 class	PmergeMe {
 
@@ -16,9 +18,11 @@ class	PmergeMe {
 		PmergeMe(const PmergeMe &other) = delete;
 		PmergeMe &operator=(const PmergeMe &other) = default;
 
-		void	sort();
-		std::list<std::pair<int, int>>	createAndSortPairs();
-		void	print();
+		void								FordJohnsonSort();
+		std::vector<std::pair<int, int>>	createPairs();
+		void								SortPairs(std::vector<std::pair<int, int>> &list, int left, int right);
+		Container							insertionSortList(std::vector<std::pair<int, int>> sortedPairs);
+		void								print();
 
 };
 

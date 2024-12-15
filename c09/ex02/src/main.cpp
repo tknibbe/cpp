@@ -1,9 +1,10 @@
 #include "../inc/PmergeMe.hpp"
 
 #include <iostream>
-#include <sys/time.h>
 #include <unistd.h>
-#
+#include <chrono>
+
+int	g_comparison_count = 0;
 
 int main(int argc, char **argv)
 {
@@ -16,34 +17,33 @@ int main(int argc, char **argv)
 	argv++;
 	std::vector<std::string> args(argv, argv + argc - 1);
 
-
-	struct timeval	start;
-	struct timeval	end;
-
-	gettimeofday(&start, NULL);
+	auto begin = std::chrono::high_resolution_clock::now();
 
 	PmergeMe<> VectorClass(args);
-	VectorClass.sort();
+	VectorClass.FordJohnsonSort();
 
-	gettimeofday(&end, NULL);
-
+	auto end = std::chrono::high_resolution_clock::now();
 
 
 	std::cout << "Before: ";
 	for (std::string str : args)
 		std::cout << str << " ";
 	
-	std::cout << "\nAfter: ";
+	std::cout << "\nAfter : ";
 	VectorClass.print();
 
-	std::cout << "Time to process a range of " << argc -1 << " elements with std::vector : " << end.tv_usec - start.tv_usec << " us\n";
+	std::cout << "Time to process a range of " << argc -1 << " elements with std::vector : " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << " us\n";
 
-
-	gettimeofday(&start, NULL);
+	g_comparison_count = 0;
+	begin = std::chrono::high_resolution_clock::now();;
 	PmergeMe<std::list<int>>	listClass(args);
-	listClass.sort();
-	gettimeofday(&end, NULL);
+	listClass.FordJohnsonSort();
+	end = std::chrono::high_resolution_clock::now();
+	// std::cout << "\nAfter : ";
+	// listClass.print();
 
-	std::cout << "Time to process a range of " << argc -1 << " elements with std::list   : " << end.tv_usec - start.tv_usec << " us\n";
+	std::cout << "Time to process a range of " << argc -1 << " elements with std::list   : " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << " us\n";
 
+
+	std::cout << "\nThis program made (taken worst case to be sure) " << g_comparison_count << " comparisons.\n(check main to make sure g_comparison_count gets reset after every sort so it doesnt over-count)\n";
 }
